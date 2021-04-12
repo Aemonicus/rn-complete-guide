@@ -12,3 +12,13 @@ Donc pas de HTML, pas de CSS, pas de JSX comme sur React mais du JSX plus limit�
 
 
 <FlatList></FlatList> est un composant qui remplace <ScrollView></ScrollView> car plus optimisé. Il n'affiche que les éléments de liste nécessaire et pas ceux cachés/invisibles..
+Attention, le composant utilise son "propre" map() avec le props renderItem
+Exemple de <FlatList
+        keyExtractor={(item, index) => item.id}
+        data={courseGoals}
+        renderItem={itemData => (
+          <GoalItem
+            title={itemData.item.value}
+            onDelete={() => removeGoalHandler(itemData.item.id)} />
+        )}
+      />
